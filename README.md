@@ -6,13 +6,15 @@ ETL pipeline for identifying undervalued football players using StatsBomb open d
 - Python , Pandas , SQLite , Jupyter , Power BI
 
 ## Project structure
+```
 football-scouting-analysis/
-|-- data/         <- ignored in git (see below)
-|-- notebooks/    <- exploration and analysis
-|-- src/          <- pipeline modules
-|   |-- extract.py
-|   |-- transform.py
-|-- visuals/      <- charts and dashboards
+├── data/         <- ignored in git (see below)
+├── notebooks/    <- exploration and analysis
+├── src/          <- pipeline modules
+│   ├── extract.py
+│   ├── transform.py
+└── visuals/      <- charts and dashboards
+```
 
 ## Setup
 
