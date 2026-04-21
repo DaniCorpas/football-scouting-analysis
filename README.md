@@ -10,9 +10,11 @@ ETL pipeline for identifying undervalued football players using StatsBomb open d
 football-scouting-analysis/
 ├── data/         <- ignored in git (see below)
 ├── notebooks/    <- exploration and analysis
+│   └── 01_exploration.ipynb
 ├── src/          <- pipeline modules
 │   ├── extract.py
 │   ├── transform.py
+│   └── load.py
 └── visuals/      <- charts and dashboards
 ```
 
@@ -34,3 +36,14 @@ git clone https://github.com/statsbomb/open-data.git
 
 ## Pipeline
 StatsBomb JSON --> extract.py --> transform.py --> SQLite --> Power BI
+
+## Architecture decisions
+This project uses **SQLite** as the local database for simplicity and portability - `the scouting.db` file can be 
+opened by anyone without installing a server.
+
+In a production environment this would be replaced by:
+- **PostrgeSQL** -> for a self-hosted or cloud pipeline
+- **Snowflake / BigQuery** -> for a cloud data warehouse at scale
+
+The ETL logic in `extract.py`, `transform` and `load.py` is database-agnostic and would
+require minimal changes to connect to any of the above.
