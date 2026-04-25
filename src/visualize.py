@@ -54,7 +54,7 @@ def plot_xg_vs_goals(player_stats_df, min_shots=3, save=True):
         df["xg_p90"],
         df["goals_p90"],
         s = df["total_shots"] * 8,
-        aplha = 0.6,
+        alpha = 0.6,
         color = "#1a73e8",
         edgecolors = "white",
         linewidths = 0.5
@@ -62,7 +62,7 @@ def plot_xg_vs_goals(player_stats_df, min_shots=3, save=True):
 
     #Reference line - goals = xG (perfect conversion)
     max_val = max(df["xg_p90"].max(), df["goals_p90"].max()) + 0.01
-    ax.plot([0, max_val], [0, max_val], color="gray", linestyle="--", linewidth=1, labels="Goals = xG (average conversion)")
+    ax.plot([0, max_val], [0, max_val], color="gray", linestyle="--", linewidth=1, label="Goals = xG (average conversion)")
 
     #Label top players by performance score
     top = df.nlargest(5, "performance_score")
@@ -73,7 +73,7 @@ def plot_xg_vs_goals(player_stats_df, min_shots=3, save=True):
             textcoords = "offset points",
             xytext = (6, 4),
             fontsize = 8,
-            color = "333333"
+            color = "#333333"
         )
     
     ax.set_xlabel("xG per 90 min", fontsize = 11)
@@ -91,7 +91,7 @@ def plot_xg_vs_goals(player_stats_df, min_shots=3, save=True):
     plt.show()
 
 
-def plt_undervalued_players(undervalued_df, save=True):
+def plot_undervalued_players(undervalued_df, save=True):
     """
     Bar chart - undervalued players ranked by xG per 90.
     Shows xG vs actual goals side by side.
@@ -107,7 +107,7 @@ def plt_undervalued_players(undervalued_df, save=True):
     ax.barh([i - bar_height / 2 for i in y], df["goals_p90"], height = bar_height, label = "Goals per 90", color = "#34a853", edgecolor = "none")
 
     ax.set_yticks(list(y))
-    ax.set_ytickslabels(df["player_name"], fontsize = 9)
+    ax.set_yticklabels(df["player_name"], fontsize = 9)
     ax.set_xlabel("Per 90 minutes", fontsize = 11)
     ax.set_title("Undervalued Players - xG vs Goals per 90", fontsize = 13, fontweight = "bold")
     ax.legend(fontsize = 9)
