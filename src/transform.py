@@ -2,7 +2,7 @@ import pandas as pd
 
 def extract_shots_features(shots_df):
     """
-    Recieves the raw shots DataFrame and returns a clean one with relevant nested fields flattened
+    Receives the raw shots DataFrame and returns a clean one with relevant nested fields flattened
     """
     df = shots_df.copy()
 
@@ -24,7 +24,7 @@ def calculate_player_stats(clean_shots_df, matches_df):
     Aggregates by player and calculates scouting metrics:
     - Total xG
     - Total goals
-    - Minutes played (aproximated from matches played)
+    - Minutes played (approximated from matches played)
     - Goals per 90 minutes
     - xG per 90 minutes
     - Performance score

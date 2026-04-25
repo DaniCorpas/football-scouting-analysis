@@ -75,7 +75,7 @@ def load_to_db(df, table_name, if_exists="replace"):
 
 def query_db(sql):
     """
-    Executes a SQL query and returns the result as a DatFrame
+    Executes a SQL query and returns the result as a DataFrame
     """
     conn = get_connection()
     result = pd.read_sql_query(sql, conn)

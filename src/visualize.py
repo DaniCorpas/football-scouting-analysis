@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
-import seaborn as sns
 import pandas as pd
 import os
 
@@ -43,7 +42,7 @@ def plot_top_players(player_stats_df, top_n=10, save=True):
 
 def plot_xg_vs_goals(player_stats_df, min_shots=3, save=True):
     """
-    Scatter plt - xG per 90 vs goals per 90.
+    Scatter plot - xG per 90 vs goals per 90.
     Size = total shots. Highlights undervalued players.
     """
     df = player_stats_df[player_stats_df["total_shots"] >= min_shots].copy()
